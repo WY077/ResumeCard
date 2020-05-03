@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.AnswerDao">
+    <insert id="save" parameterType="com.study.domain.Answer">
+        insert into study (search,content) values (#{index},#{content});
+    </insert>
+    <select id="searchByIndex" parameterType="String" resultType="java.lang.String">
+       select content from study where search = #{index};
+    </select>
+    <delete id="shanchu" parameterType="String" >
+       delete from study where  search = #{index};
+    </delete>
+    <update id="genggai" parameterType="String" >
+       update study  set content = #{content} where search =  #{index};
+    </update>
+</mapper>
